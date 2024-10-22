@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finsure - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            background-image: url('purple-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .signup-container {
+            background-color: rgba(107, 14, 141, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            display: flex;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 1.2rem;
+        }
+
+        .form-container {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #a78bfa;
+        }
+
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 0 0.5rem;
+        }
+
+        .step.active {
+            background-color: #a78bfa;
+            color: #1a1a1a;
+        }
+
+        form {
+            display: none;
+        }
+
+        form.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.25rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f2f2f2;
+        }
+
+        .checkbox-group {
+            margin-top: 1rem;
+        }
+
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        #other-goal {
+            display: none;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            background-color: #a78bfa;
+            color: #1a1a1a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #b69cf0;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .signup-container {
+                flex-direction: column;
+            }
+
+            .form-container {
+                padding-left: 0;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="image-container">
+            <div class="image-placeholder">Finsure Image Placeholder</div>
+        </div>
+        <div class="form-container">
+            <h1>Sign Up for Finsure</h1>
+            <div class="progress-tracker">
+                <div class="step active">1. Personal</div>
+                <div class="step">2. Financial</div>
+                <div class="step">3. Goals</div>
+            </div>
+
+            <form id="personal-details" class="active">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <div class="button-group">
+                    <button type="button" onclick="nextStep(2)">Next</button>
+                </div>
+            </form>
+
+            <form id="financial-information">
+                <label for="income">Annual Income</label>
+                <select id="income" name="income" required>
+                    <option value="">Select income range</option>
+                    <option value="0-25000">$0 - $25,000</option>
+                    <option value="25001-50000">$25,001 - $50,000</option>
+                    <option value="50001-75000">$50,001 - $75,000</option>
+                    <option value="75001-100000">$75,001 - $100,000</option>
+                    <option value="100001+">$100,001+</option>
+                </select>
+
+                <label for="savings">Current Savings</label>
+                <select id="savings" name="savings" required>
+                    <option value="">Select savings range</option>
+                    <option value="0-10000">$0 - $10,000</option>
+                    <option value="10001-50000">$10,001 - $50,000</option>
+                    <option value="50001-100000">$50,001 - $100,000</option>
+                    <option value="100001-250000">$100,001 - $250,000</option>
+                    <option value="250001+">$250,001+</option>
+                </select>
+
+                <label for="investments">Investment Portfolio Value</label>
+                <select id="investments" name="investments" required>
+                    <option value="">Select investment range</option>
+                    <option value="0-50000">$0 - $50,000</option>
+                    <option value="50001-100000">$50,001 - $100,000</option>
+                    <option value="100001-250000">$100,001 - $250,000</option>
+                    <option value="250001-500000">$250,001 - $500,000</option>
+                    <option value="500001+">$500,001+</option>
+                </select>
+
+                <label for="retirement-age">Expected Retirement Age</label>
+                <select id="retirement-age" name="retirement-age" required>
+                    <option value="">Select retirement age</option>
+                    <option value="55-60">55 - 60</option>
+                    <option value="61-65">61 - 65</option>
+                    <option value="66-70">66 - 70</option>
+                    <option value="71+">71+</option>
+                </select>
+
+                <div class="button-group">
+                    <button type="button" onclick="prevStep(1)">Previous</button>
+                    <button type="button" onclick="nextStep(3)">Next</button>
+                </div>
+            </form>
+
+            <form id="health-goals">
+                <label for="health-status">Overall Health Status</label>
+                <select id="health-status" name="health-status" required>
+                    <option value="">Select an option</option>
+                    <option value="excellent">Excellent</option>
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="poor">Poor</option>
+                </select>
+
+                <label>Financial Goals</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="goals" value="retirement"> Retirement Planning</label>
+                    <label><input type="checkbox" name="goals" value="savings"> Increase Savings</label>
+                    <label><input type="checkbox" name="goals" value="investment"> Grow Investments</label>
+                    <label><input type="checkbox" name="goals" value="debt"> Debt Reduction</label>
+                    <label><input type="checkbox" name="goals" value="other" onclick="toggleOtherGoal()"> Other</label>
+                </div>
+                <textarea id="other-goal" name="other-goal" rows="2" placeholder="Please specify your other financial goal"></textarea>
+
+                <div class="button-group">
+                    <button type="button" onclick="prevStep(2)">Previous</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('form').forEach(form => form.classList.remove('active'));
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            
+            document.getElementById(['personal-details', 'financial-information', 'health-goals'][step - 1]).classList.add('active');
+            document.querySelectorAll('.step')[step - 1].classList.add('active');
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+
+        function toggleOtherGoal() {
+            const otherGoalCheckbox = document.querySelector('input[name="goals"][value="other"]');
+            const otherGoalTextarea = document.getElementById('other-goal');
+            otherGoalTextarea.style.display = otherGoalCheckbox.checked ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
